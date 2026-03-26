@@ -1,2 +1,4 @@
+data/store.json
+data/app.db
 node_modules/
 dist
