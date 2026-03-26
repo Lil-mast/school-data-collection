@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import { useRouter } from "next/navigation";
 import { TopNav } from "../components/TopNav";
 import { apiFetch } from "../lib/api";
@@ -16,7 +16,7 @@ export default function MentorPage() {
   const router = useRouter();
   const [requests, setRequests] = useState<SupportRequest[]>([]);
 
-  async function loadRequests() {
+  const loadRequests = useCallback(async () => {
     const meRes = await apiFetch("/api/auth/me");
     if (!meRes.ok) {
       router.push("/login");
@@ -30,11 +30,15 @@ export default function MentorPage() {
     const res = await apiFetch("/api/support-requests");
     const data = await res.json();
     setRequests(data.grievances || []);
-  }
+  }, [router]);
 
   useEffect(() => {
-    void loadRequests();
-  }, []);
+    // Run async load after the effect body completes to avoid sync setState-in-effect lint issues.
+    const t = setTimeout(() => {
+      void loadRequests();
+    }, 0);
+    return () => clearTimeout(t);
+  }, [loadRequests]);
 
   const counts = useMemo(
     () => ({

@@ -1,6 +1,6 @@
 "use client";
 
-import { FormEvent, useEffect, useState } from "react";
+import { FormEvent, useCallback, useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { TopNav } from "../components/TopNav";
 import { apiFetch } from "../lib/api";
@@ -21,7 +21,7 @@ export default function StudentPage() {
   const [loading, setLoading] = useState(false);
   const [requests, setRequests] = useState<SupportRequest[]>([]);
 
-  async function loadRequests() {
+  const loadRequests = useCallback(async () => {
     const me = await apiFetch("/api/auth/me");
     if (!me.ok) {
       router.push("/login");
@@ -30,11 +30,15 @@ export default function StudentPage() {
     const res = await apiFetch("/api/support-requests");
     const data = await res.json();
     setRequests(data.grievances || []);
-  }
+  }, [router]);
 
   useEffect(() => {
-    void loadRequests();
-  }, []);
+    // Run async load after the effect body completes to avoid sync setState-in-effect lint issues.
+    const t = setTimeout(() => {
+      void loadRequests();
+    }, 0);
+    return () => clearTimeout(t);
+  }, [loadRequests]);
 
   async function submitRequest(e: FormEvent) {
     e.preventDefault();
