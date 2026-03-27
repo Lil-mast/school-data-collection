@@ -2,7 +2,6 @@
 
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { useRouter } from "next/navigation";
-import { TopNav } from "../components/TopNav";
 import { apiFetch } from "../lib/api";
 
 type SupportRequest = {
@@ -51,7 +50,6 @@ export default function MentorPage() {
 
   return (
     <div className="min-h-screen bg-zinc-50 text-zinc-900">
-      <TopNav />
       <main className="mx-auto max-w-7xl space-y-8 px-6 py-10">
         <section className="grid gap-6 md:grid-cols-4">
           <div className="rounded-2xl bg-white p-6 shadow-sm md:col-span-2">

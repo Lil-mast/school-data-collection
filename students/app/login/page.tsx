@@ -3,7 +3,6 @@
 import Link from "next/link";
 import { FormEvent, useState } from "react";
 import { useRouter } from "next/navigation";
-import { TopNav } from "../components/TopNav";
 import { apiFetch } from "../lib/api";
 
 export default function LoginPage() {
@@ -34,7 +33,6 @@ export default function LoginPage() {
 
   return (
     <div className="min-h-screen bg-zinc-50 text-zinc-900">
-      <TopNav />
       <main className="mx-auto max-w-md px-6 py-16">
         <section className="rounded-3xl bg-white p-8 shadow-sm">
           <h1 className="text-4xl italic">Login</h1>

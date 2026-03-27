@@ -2,7 +2,6 @@
 
 import { FormEvent, useCallback, useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
-import { TopNav } from "../components/TopNav";
 import { apiFetch } from "../lib/api";
 
 type SupportRequest = {
@@ -74,7 +73,6 @@ export default function StudentPage() {
 
   return (
     <div className="min-h-screen bg-zinc-50 text-zinc-900">
-      <TopNav />
       <main className="mx-auto grid max-w-7xl gap-8 px-6 py-10 lg:grid-cols-3">
         <section className="space-y-6 lg:col-span-2">
           <div className="rounded-3xl bg-white p-8 shadow-sm">

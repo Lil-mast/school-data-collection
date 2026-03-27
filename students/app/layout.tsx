@@ -1,16 +1,5 @@
-import type { Metadata } from "next";
-import { Manrope, Newsreader } from "next/font/google";
 import "./globals.css";
-
-const manrope = Manrope({
-  variable: "--font-manrope",
-  subsets: ["latin"],
-});
-
-const newsreader = Newsreader({
-  variable: "--font-newsreader",
-  subsets: ["latin"],
-});
+import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "The Quiet Advocate",
@@ -25,9 +14,11 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${manrope.variable} ${newsreader.variable} h-full antialiased`}
+      className="light"
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-full flex flex-col text-on-surface selection:bg-primary selection:text-on-primary">
+        {children}
+      </body>
     </html>
   );
 }
