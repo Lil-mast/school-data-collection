@@ -1,52 +1,12 @@
 "use client";
 
 import Link from "next/link";
+import { TopNav } from "@/app/components/TopNav";
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-surface text-on-surface selection:bg-primary selection:text-on-primary">
-      {/* Top Navigation Bar */}
-      <nav className="fixed top-0 w-full z-50 bg-white/80 dark:bg-zinc-950/80 backdrop-blur-md shadow-sm shadow-zinc-200/50 dark:shadow-none">
-        <div className="flex justify-between items-center w-full px-6 py-4 max-w-7xl mx-auto">
-          <div className="text-2xl font-serif italic text-zinc-900 dark:text-zinc-50 tracking-tight">
-            The Quiet Advocate
-          </div>
-          <div className="hidden md:flex items-center gap-12">
-            <a
-              className="text-zinc-900 dark:text-zinc-50 font-bold border-b-2 border-zinc-900 dark:border-zinc-50 pb-1 font-sans font-medium transition-all duration-300"
-              href="#"
-            >
-              Home
-            </a>
-            <a
-              className="text-zinc-500 dark:text-zinc-400 hover:text-zinc-800 dark:hover:text-zinc-200 transition-colors font-sans font-medium"
-              href="#"
-            >
-              About
-            </a>
-            <a
-              className="text-zinc-500 dark:text-zinc-400 hover:text-zinc-800 dark:hover:text-zinc-200 transition-colors font-sans font-medium"
-              href="#"
-            >
-              Contact
-            </a>
-          </div>
-          <div className="flex items-center gap-4">
-            <Link
-              href="/login"
-              className="px-6 py-2 text-zinc-900 dark:text-zinc-50 font-sans font-medium hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-all duration-300 rounded-full active:scale-95 opacity-90 transition-transform"
-            >
-              Login
-            </Link>
-            <Link
-              href="/register"
-              className="px-6 py-2 bg-primary text-on-primary font-sans font-medium rounded-full hover:bg-primary-container transition-all duration-300 active:scale-95 opacity-90 transition-transform"
-            >
-              Get Started
-            </Link>
-          </div>
-        </div>
-      </nav>
+    <div className="min-h-screen bg-white dark:bg-zinc-950 text-zinc-900 dark:text-zinc-50">
+      <TopNav />
 
       <main className="pt-20">
         {/* Hero Section */}
@@ -54,17 +14,16 @@ export default function Home() {
           <div className="absolute inset-0 z-0">
             <img
               alt="A serene monochrome mountain landscape"
-              className="w-full h-full object-cover filter grayscale opacity-40 brightness-110"
-              data-alt="Cinematic wide-angle view of misty, layered mountain peaks in a monochrome black and white palette, soft atmospheric lighting and ethereal fog"
+              className="w-full h-full object-cover filter grayscale opacity-40 brightness-110 dark:brightness-75"
               src="https://lh3.googleusercontent.com/aida-public/AB6AXuAnMZPfNa-J_dIm-3WSAFqPEfM4HEebDDQu4rqp5qpONTAHeslp8Z2ORf946Hl05fQBDmYNS8KR8-goGTSaewTrvy8X9BIKhv4x_VFdzKdloYn5EZL_XzZR-rHJsPB_nBWHe188useL9glhif30f1pZghOiaxVA28ssnV1WQjZJsTBQxeHjIOVUIAEnvDgUmPyP0ux9t6tzibo_oKNzFHyfYpVccHNJd-NopTLQcDYR6tZDIk5mXpTD0xSfNVntGPquGdzaWVN-82Aw"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-surface via-transparent to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-t from-white dark:from-zinc-950 via-transparent to-transparent" />
           </div>
           <div className="relative z-10 text-center px-6 max-w-5xl">
-            <h1 className="text-6xl md:text-8xl font-serif italic tracking-tight text-on-surface mb-8">
+            <h1 className="text-6xl md:text-8xl font-serif italic tracking-tight text-zinc-900 dark:text-zinc-50 mb-8">
               From Overwhelm to Breakthrough
             </h1>
-            <p className="text-xl md:text-2xl font-body text-on-surface-variant max-w-2xl mx-auto mb-12 leading-relaxed">
+            <p className="text-xl md:text-2xl font-body text-zinc-600 dark:text-zinc-400 max-w-2xl mx-auto mb-12 leading-relaxed">
               A private sanctuary for university students. Experience
               institutional change through anonymous advocacy and intelligent
               support.
@@ -72,13 +31,13 @@ export default function Home() {
             <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
               <Link
                 href="/student"
-                className="group px-10 py-4 bg-primary text-on-primary rounded-full font-body font-bold text-lg hover:shadow-2xl transition-all duration-500 active:scale-95"
+                className="group px-10 py-4 bg-zinc-900 dark:bg-zinc-100 text-white dark:text-zinc-900 rounded-full font-body font-bold text-lg hover:shadow-2xl hover:shadow-black/20 dark:hover:shadow-white/10 transition-all duration-500 active:scale-95"
               >
                 Student Portal
               </Link>
               <Link
                 href="/mentor"
-                className="px-10 py-4 border-b border-primary text-primary hover:bg-surface-container-low transition-all duration-300 font-body font-bold text-lg active:scale-95"
+                className="px-10 py-4 border-b border-zinc-900 dark:border-zinc-100 text-zinc-900 dark:text-zinc-100 hover:bg-zinc-100 dark:hover:bg-zinc-900 transition-all duration-300 font-body font-bold text-lg active:scale-95"
               >
                 Mentor Access
               </Link>
@@ -87,17 +46,149 @@ export default function Home() {
         </section>
 
         {/* Brief & High-Level Content Section */}
-        <section className="py-24 px-6 bg-surface">
+        <section className="py-24 px-6 bg-white dark:bg-zinc-950">
           <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-24 items-center">
             <div className="space-y-12">
               <div className="space-y-6">
-                <span className="text-xs uppercase tracking-widest font-label font-bold text-outline">
+                <span className="text-xs uppercase tracking-widest font-label font-bold text-zinc-500 dark:text-zinc-500">
                   The Philosophy
                 </span>
-                <h2 className="text-5xl font-serif text-on-surface leading-tight">
+                <h2 className="text-5xl font-serif text-zinc-900 dark:text-zinc-50 leading-tight">
                   Institutional silence ends with structured dialogue.
                 </h2>
               </div>
+              <p className="text-lg text-zinc-600 dark:text-zinc-400 leading-relaxed font-body">
+                Universities have centuries of bureaucracy. Students have
+                voices. We bridge the gap with transparency, anonymity when
+                needed, and AI-assisted clarity. No walls. No noise. Just
+                resolution.
+              </p>
+              <Link
+                href="/about"
+                className="inline-block px-8 py-3 bg-zinc-900 dark:bg-zinc-100 text-white dark:text-zinc-900 rounded-full font-semibold hover:opacity-90 transition-opacity"
+              >
+                Learn More
+              </Link>
+            </div>
+            <div className="relative aspect-video bg-zinc-100 dark:bg-zinc-900 rounded-lg overflow-hidden shadow-xl">
+              <img
+                alt="University campus with students"
+                className="w-full h-full object-cover opacity-80"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuA-x4cHOH_pqvlAGrGbOdm2MVzAyR0N-7HUjEzLmxJHJELp73Z-R1ixG0NAEyPLfXHUpYM_DQGwQgB8lx1W8SFzMRTuZzJ5I0waMSJGk3CHWjG8dBnEHaXq_5DfKvg0HZOV2jrvMJ3UNwb-Rr8ywvJVkfcqALFqCJCPCe5PdUxEzHdOvHB_IvQ8tCHQ_qKxqvf1DkVvEuD9vKdFZtd-cKT3Y3Ro"
+              />
+            </div>
+          </div>
+        </section>
+
+        {/* Three Pillar Section */}
+        <section className="bg-zinc-50 dark:bg-zinc-900 py-24 px-6 mb-24">
+          <div className="max-w-7xl mx-auto">
+            <h2 className="text-4xl font-serif italic text-zinc-900 dark:text-zinc-50 text-center mb-20">
+              Built on three principles
+            </h2>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+              {[
+                {
+                  icon: "🔒",
+                  title: "Privacy by Design",
+                  description:
+                    "Your identity is yours. Data is encrypted. You control when and how you're identified.",
+                },
+                {
+                  icon: "🤐",
+                  title: "Anonymous Advocacy",
+                  description:
+                    "Speak freely. Our AI mediator distills truth from identity, so institutions hear you without bias.",
+                },
+                {
+                  icon: "⚡",
+                  title: "Fast Resolution",
+                  description:
+                    "Traditional systems take months. We accelerate justice through intelligent triage and mediation.",
+                },
+              ].map((item, idx) => (
+                <div
+                  key={idx}
+                  className="bg-white dark:bg-zinc-800 p-10 rounded-xl border border-zinc-100 dark:border-zinc-700 hover:shadow-xl dark:hover:shadow-black/30 transition-shadow"
+                >
+                  <div className="text-5xl mb-6">{item.icon}</div>
+                  <h3 className="text-2xl font-serif text-zinc-900 dark:text-zinc-50 mb-4">
+                    {item.title}
+                  </h3>
+                  <p className="text-zinc-600 dark:text-zinc-400 font-body leading-relaxed">
+                    {item.description}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* CTA Section */}
+        <section className="bg-zinc-900 dark:bg-black text-white px-6 py-24 mb-24">
+          <div className="max-w-7xl mx-auto text-center">
+            <h2 className="text-5xl md:text-6xl font-serif italic mb-8">
+              Ready to be heard?
+            </h2>
+            <p className="text-xl text-zinc-300 max-w-2xl mx-auto mb-12">
+              Join thousands of students who are reshaping institutional
+              accountability.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
+              <Link
+                href="/register"
+                className="px-10 py-4 bg-white text-zinc-900 rounded-full font-bold hover:scale-105 transition-transform text-lg"
+              >
+                Get Started Now
+              </Link>
+              <Link
+                href="/about"
+                className="px-10 py-4 border-2 border-white text-white rounded-full font-bold hover:bg-white/10 transition-colors text-lg"
+              >
+                Learn More
+              </Link>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      {/* Footer */}
+      <footer className="w-full py-12 px-8 flex flex-col md:flex-row justify-between items-center gap-6 max-w-7xl mx-auto border-t border-zinc-200 dark:border-zinc-800">
+        <div className="flex flex-col items-center md:items-start gap-2">
+          <Link
+            href="/"
+            className="font-serif italic text-lg text-zinc-900 dark:text-zinc-50 hover:opacity-80 transition-opacity"
+          >
+            The Quiet Advocate
+          </Link>
+          <div className="font-sans text-xs uppercase tracking-widest text-zinc-400 dark:text-zinc-600">
+            © 2024 THE QUIET ADVOCATE. PRIVACY ASSURED.
+          </div>
+        </div>
+        <div className="flex gap-8">
+          <a
+            className="font-sans text-xs uppercase tracking-widest text-zinc-400 dark:text-zinc-600 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors"
+            href="#"
+          >
+            Privacy Policy
+          </a>
+          <a
+            className="font-sans text-xs uppercase tracking-widest text-zinc-400 dark:text-zinc-600 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors"
+            href="#"
+          >
+            Terms of Service
+          </a>
+          <a
+            className="font-sans text-xs uppercase tracking-widest text-zinc-400 dark:text-zinc-600 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors"
+            href="#"
+          >
+            Institutional Guidelines
+          </a>
+        </div>
+      </footer>
+    </div>
+  );
+}
               <div className="grid grid-cols-1 gap-12">
                 <div className="flex gap-6 items-start">
                   <span className="material-symbols-outlined text-3xl text-primary">
